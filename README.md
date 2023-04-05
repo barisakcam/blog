@@ -26,11 +26,11 @@ At fragment shader Lambertian diffuse shading and Phong shading are calculated. 
 
 For testing, I was planning to make a FPS-samples comparison but my program is currently not affected by the sample amount. The issue might be that I am using Mesa implementation on Ubuntu WSL2 or the problem is just too simple to cause framerate changes. Here are results for the example inputs:
 
-![input1.txt](/docs/assets/derivative.png) ![input1.txt wireframe mode](/docs/assets/derivative.png)
+![input1.txt](/docs/assets/input1.png) ![input1.txt wireframe mode](/docs/assets/input1w.png)
  
-![input2.txt](/docs/assets/derivative.png) ![input2.txt wireframe mode](/docs/assets/derivative.png)
+![input2.txt](/docs/assets/input2.png) ![input2.txt wireframe mode](/docs/assets/input2w.png)
 
-![input3.txt](/docs/assets/derivative.png) ![input3.txt wireframe mode](/docs/assets/derivative.png)
+![input3.txt](/docs/assets/input3.png) ![input3.txt wireframe mode](/docs/assets/input3w.png)
 
 A strange bug I discovered during testing is that the triangulation gets distorted when sample count is 66 or 74. It only happens at these numbers independent of the input given in my environment. I suspect my driver issues might be causing that so I decided to not focus on it but it is a good example that OpenGL works in mysterious ways.
 
