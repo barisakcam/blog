@@ -14,7 +14,9 @@ I started my implementation from an example OpenGL code provided in class. The f
 
 Lastly, uniform variables such as light positions and control points are managed at CPU side. Also a simple FPS counter to print current sample rate and FPS is implemented. The important parts of the program are implemented in shaders. The vertex shader takes various uniform variables such as control points and calculates vertex position with respect to "gl_VertexID". There are two ways to do Bezier calculations. First one is to use matrix multiplications like in Hermes curves and the other one is Bernstein polynomials. Although the second one is simpler and most probably faster, I used the first approach to make normal calculations simpler.
 
-*Bezier formula, also normal formula*
+![Bezier formula](/docs/assets/bezierformulea.png)
+
+![Normal calculation](/docs/assets/derivative.png)
 
 After calculating coordinates for vertices, the scaling operations are applied to them to make sure that the final object fits in [-0.5, 0.5] interval. Also coordinate multiplication from user input ("E" and "D" buttons) is applied here. After these operations, each surface instance are residing at the center of the coordinate system. Necessary transformations to reposition these surfaces are done using "gl_InstanceID" value. After that comes the normal calculations. There are 9 versions of Bezier surface equation in vertex shader, implemented as different functions. These consist of functions for Q(s, t), dQ(s, t)/ds and dQ(s, t)/ds, 3 functions for x, y and z coordinates for each of them. Thererefore, normals can be easily obtained by calculating the cross product of partial derivatives.
 
@@ -22,5 +24,13 @@ At fragment shader Lambertian diffuse shading and Phong shading are calculated. 
 
 ### Testing
 
+For testing, I was planning to make a FPS-samples comparison but my program is currently not affected by sample amount. The issue might be that I am using Mesa implementation on Ubuntu WSL2 or the problem is just too simple to cause framerate changes. Here are results for the example inputs:
 
+![input1.txt](/docs/assets/derivative.png) ![input1.txt wireframe mode](/docs/assets/derivative.png)
+ 
+![input2.txt](/docs/assets/derivative.png) ![input2.txt wireframe mode](/docs/assets/derivative.png)
+
+![input3.txt](/docs/assets/derivative.png) ![input3.txt wireframe mode](/docs/assets/derivative.png)
+
+A strange bug I discovered during testing is that the triangulation gets distorted when sample count is 66 or 74. It only happens at these numbers independent of the input given in my environment. I suspect my driver issues might be causing that so I decided to not focus on it but it is a good example that OpenGL works in mysterious ways.
 
