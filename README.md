@@ -33,3 +33,7 @@ For testing, I was planning to make a FPS-samples comparison but my program is c
 ![input3.txt](/docs/assets/input3.png) ![input3.txt wireframe](/docs/assets/input3w.png)
 
 A strange bug I discovered during testing is that the triangulation gets distorted when sample count is 66 or 74. It only happens at these numbers independent of the input given in my environment. I suspect my driver issues might be causing that so I decided to not focus on it but it is a good example that OpenGL works in mysterious ways.
+
+### Conclusion
+
+This homework was a nice practice to remember OpenGL for me. I am satisfied with my work in general. Only problem is that I do not have much time to set up a proper blog page so it is currently a single page site. It will be replaced by a better site by the time I write the blog for the second homework since I am planning to use this site as an exhibition for my personal projects in the future.
