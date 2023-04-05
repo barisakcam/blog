@@ -1,10 +1,8 @@
-# Surface Rendering
-
-### Introduction
+## Introduction
 
 The purpose of this program is to render Bezier surfaces with different triangulation sample rates. The program uses an input file containing 1-5 light sources and up to 36 Bezier surfaces. Each surface is triangulated with an amount of 10 samples per edge by default. In such a case, a surface contains 10x10 vertices and 9x9x2 triangles. The program allows modification of this sample rate using "W" and "S" buttons in a range from 2 to 80. The rotation on horizontal axis of the final object is possible with "R" and "F" buttons. User can increase the size of the object on x-y axises without modifying z values by using "E" and "D" buttons. I also configured "Q" and "A" buttons to switch between wireframe and standard versions of the surface.
 
-### Implementation
+## Implementation
 
 Before starting coding, I had to configure my environment to run OpenGL programs. I am using a Windows 11 machine with Ubuntu WSL2. Since I was previously using WSL2 for development, I decided to keep using it. Although I have a RTX3050Ti GPU, I could not manage to use OpenGL 4.6. After a day spent searching a reliable method to use OpenGL on WSL2, I managed to set up Mesa implementation of OpenGL 4.2. This most probably causes major performance limitations but it did not cause problem for this project.
 
@@ -22,7 +20,7 @@ After calculating coordinates for vertices, the scaling operations are applied t
 
 At the fragment shader, Lambertian diffuse shading and Phong shading are calculated. There is nothing special except that I used "gl_FrontFacing" value to reverse vertex normals when back faces of triangles are visible. Thanks to that, back faces of triangles are also coloured.
 
-### Testing
+## Testing
 
 For testing, I was planning to make a FPS-samples comparison but my program is currently not affected by the sample amount. The issue might be that I am using Mesa implementation on Ubuntu WSL2 or the problem is just too simple to cause framerate changes. Here are results for the example inputs:
 
@@ -34,6 +32,6 @@ For testing, I was planning to make a FPS-samples comparison but my program is c
 
 A strange bug I discovered during testing is that the triangulation gets distorted when sample count is 66 or 74. It only happens at these numbers independent of the input given in my environment. I suspect my driver issues might be causing that so I decided to not focus on it but it is a good example that OpenGL works in mysterious ways.
 
-### Conclusion
+## Conclusion
 
 This homework was a nice practice to remember OpenGL for me. I am satisfied with my work in general. Only problem is that I do not have much time to set up a proper blog page so it is currently a single page site. It will be replaced by a better site by the time I write the blog for the second homework since I am planning to use this site as an exhibition for my personal projects in the future.
