@@ -18,7 +18,9 @@ Lastly, uniform variables such as light positions and control points are managed
 
 After calculating coordinates for vertices, the scaling operations are applied to them to make sure that the final object fits in [-0.5, 0.5] interval. Also coordinate multiplication from user input ("E" and "D" buttons) is applied here. After these operations, each surface instance are residing at the center of the coordinate system. Necessary transformations to reposition these surfaces are done using "gl_InstanceID" value. After that comes the normal calculations. There are 9 versions of Bezier surface equation in vertex shader, implemented as different functions. These consist of functions for Q(s, t), dQ(s, t)/ds and dQ(s, t)/ds, 3 functions for x, y and z coordinates for each of them. Thererefore, normals can be easily obtained by calculating the cross product of partial derivatives.
 
-At fragment shader, (!!!back face anlat!!!)
+At fragment shader Lambertian diffuse shading and Phong shading are calculated. There is nothing special except that I used "gl_FrontFacing" value to reverse vertex normals when back faces of triangles are visible. Thanks to that, back faces of triangles are also coloured.
 
 ### Testing
+
+
 
